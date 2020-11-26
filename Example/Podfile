@@ -1,6 +1,6 @@
 def shared_pods
   pod 'BitmovinAdobeAnalytics', path: '../'
-  pod 'BitmovinPlayer', git: 'https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git', tag: '2.50.0'
+  pod 'BitmovinPlayer', git: 'https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git', tag: '2.57.0'
   pod 'ACPCore', '~> 2.0'
   pod 'ACPAnalytics', '~> 2.0'
   pod 'ACPMedia', '~> 2.0'
@@ -13,7 +13,7 @@ target 'BitmovinAdobeAnalytics_Example' do
   platform :ios, '10.0'
   shared_pods
 
-  pod 'GoogleAds-IMA-iOS-SDK', '3.11.1'
+  pod 'GoogleAds-IMA-iOS-SDK', '3.12.1'
 end
 
 target 'BitmovinAdobeAnalytics_TvOSExample' do

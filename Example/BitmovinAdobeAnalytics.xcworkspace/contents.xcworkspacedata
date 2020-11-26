@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/luckygoyal/workspace/bitmovin-player-ios-analytics-adobe/Example/BitmovinAdobeAnalytics.xcodeproj">
+      location = "group:BitmovinAdobeAnalytics.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:BitmovinAdobeAnalytics.xcodeproj">
    </FileRef>
 </Workspace>

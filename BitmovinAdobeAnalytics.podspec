@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BitmovinAdobeAnalytics'
-  s.version          = '0.0.1-rc1'
+  s.version          = '1.0.0-rc1'
   s.summary          = 'Adobe Analytics Integration for the Bitmovin Player iOS SDK'
 
   s.description      = <<-DESC
@@ -17,14 +17,14 @@ Adobe Analytics Integration for the Bitmovin Player iOS SDK
 
   s.source_files = 'BitmovinAdobeAnalytics/Sources/**/*.swift'
   s.resources = 'BitmovinAdobeAnalytics/Assets/*'
-  s.swift_version = '4.2'
+  s.swift_version = '5.2'
   s.cocoapods_version = '>= 1.4.0'
 
-  s.ios.dependency 'BitmovinPlayer', '~> 2.50'
+  s.ios.dependency 'BitmovinPlayer', '~> 2.57'
   s.ios.dependency 'ACPCore', '~> 2.0'
   s.ios.dependency 'ACPAnalytics', '~> 2.0'
   s.ios.dependency 'ACPMedia', '~> 2.0'
-  s.tvos.dependency 'BitmovinPlayer', '~> 2.50'
+  s.tvos.dependency 'BitmovinPlayer', '~> 2.57'
   s.tvos.dependency 'ACPCore', '~> 2.0'
   s.tvos.dependency 'ACPAnalytics', '~> 2.0'
   s.tvos.dependency 'ACPMedia', '~> 2.0'

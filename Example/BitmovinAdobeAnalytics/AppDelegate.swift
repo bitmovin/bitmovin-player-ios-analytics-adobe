@@ -1,8 +1,7 @@
 //
-//  AdobeConfiguration.swift
-//  BitmovinAdobeAnalytics
+//  AppDelegate.swift
+//  BitmovinAdobeAnalyticsExample
 //
-//  Created by Bitmovin on 14.08.20.
 //  Copyright (c) 2020 Bitmovin. All rights reserved.
 //
 

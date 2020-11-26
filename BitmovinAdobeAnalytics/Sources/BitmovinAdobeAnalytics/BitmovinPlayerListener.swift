@@ -1,8 +1,7 @@
 //
-//  AdobeConfiguration.swift
+//  BitmovinPlayerListener.swift
 //  BitmovinAdobeAnalytics
 //
-//  Created by Bitmovin on 14.08.20.
 //  Copyright (c) 2020 Bitmovin. All rights reserved.
 //
 
@@ -10,10 +9,10 @@ import Foundation
 import BitmovinPlayer
 
 class BitmovinPlayerListener: NSObject {
-    let player: BitmovinPlayer
+    let player: Player
     weak var delegate: BitmovinPlayerListenerDelegate?
 
-    init(player: BitmovinPlayer) {
+    init(player: Player) {
         self.player = player
         super.init()
         self.player.add(listener: self)

@@ -1,8 +1,7 @@
 //
-//  AdobeConfiguration.swift
-//  BitmovinAdobeAnalytics
+//  ViewController.swift
+//  BitmovinAdobeAnalyticsExample
 //
-//  Created by Bitmovin on 14.08.20.
 //  Copyright (c) 2020 Bitmovin. All rights reserved.
 //
 
@@ -17,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var streamUrlTextField: UITextField!
     @IBOutlet weak var uiEventLabel: UILabel!
 
-    var player: BitmovinPlayer?
+    var player: Player?
     var playerView: BMPBitmovinPlayerView?
     var fullScreen: Bool = false
 
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
 
     func setupBitmovinPlayer() {
         // Setup Player
-        player = BitmovinPlayer()
+        player = Player()
 
         let adobeConfig = AdobeConfiguration()
         adobeConfig.debugLoggingEnabled = true
@@ -130,37 +129,37 @@ extension ViewController: FullscreenHandler {
 
 extension ViewController: AdobeAnalyticsDataOverrideDelegate {
 
-    func getMediaContextData (_ player: BitmovinPlayer) -> NSMutableDictionary? {
-        return ["os": "iOS/tvOS"]
+    func getMediaContextData (_ player: Player) -> NSMutableDictionary? {
+        return ["os": "iOS"]
     }
 
-    func getMediaName (_ player: BitmovinPlayer, _ source: SourceItem) -> String {
+    func getMediaName (_ player: Player, _ source: SourceItem) -> String {
         return source.itemTitle ?? "Test_Media_Name"
     }
 
-    func getMediaId (_ player: BitmovinPlayer, _ source: SourceItem) -> String {
+    func getMediaId (_ player: Player, _ source: SourceItem) -> String {
         return source.itemTitle ?? "Test_Media_Id"
     }
 
-    func getAdBreakId (_ player: BitmovinPlayer, _ event: AdBreakStartedEvent) -> String {
+    func getAdBreakId (_ player: Player, _ event: AdBreakStartedEvent) -> String {
         return event.adBreak.identifier
     }
 
-    func getAdBreakPosition (_ player: BitmovinPlayer, _ event: AdBreakStartedEvent) -> Double {
+    func getAdBreakPosition (_ player: Player, _ event: AdBreakStartedEvent) -> Double {
         activeAdPosition = 0
         activeAdBreakPosition += 1
         return activeAdBreakPosition
     }
 
-    func getAdName (_ player: BitmovinPlayer, _ event: AdStartedEvent) -> String {
+    func getAdName (_ player: Player, _ event: AdStartedEvent) -> String {
         return event.ad.identifier ?? "default_Ad_Id"
     }
 
-    func getAdId (_ player: BitmovinPlayer, _ event: AdStartedEvent) -> String {
+    func getAdId (_ player: Player, _ event: AdStartedEvent) -> String {
         return event.ad.identifier ?? "default_Ad_Id"
     }
 
-    func getAdPosition (_ player: BitmovinPlayer, _ event: AdStartedEvent) -> Double {
+    func getAdPosition (_ player: Player, _ event: AdStartedEvent) -> Double {
         activeAdPosition += 1
         return activeAdPosition
     }
