@@ -1,6 +1,8 @@
+source 'https://cdn.cocoapods.org'
+source 'https://github.com/bitmovin/cocoapod-specs.git'
 def shared_pods
   pod 'BitmovinAdobeAnalytics', path: '../'
-  pod 'BitmovinPlayer', git: 'https://github.com/bitmovin/bitmovin-player-ios-sdk-cocoapod.git', tag: '2.57.0'
+  pod 'BitmovinPlayer', '2.57.0'
   pod 'ACPCore', '~> 2.0'
   pod 'ACPAnalytics', '~> 2.0'
   pod 'ACPMedia', '~> 2.0'
