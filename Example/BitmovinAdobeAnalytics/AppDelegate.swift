@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // setup Adobe analytics
         ACPCore.setLogLevel(.debug)
-        ACPCore.configure(withAppId: "2e662f4d7a02/f7314e644f8f/launch-98a1c3e547bf-development")
+        ACPCore.configure(withAppId: "YOUR-APP-ID")
 
         ACPMedia.registerExtension()
         ACPAnalytics.registerExtension()
