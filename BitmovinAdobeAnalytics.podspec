@@ -10,8 +10,8 @@ Adobe Analytics Integration for the Bitmovin Player iOS SDK
   s.homepage         = 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe'
   s.license          = { type: 'MIT', file: 'LICENSE' }
   s.author           = { 'Bitmovin' => 'lucky.goyal@bitmovin.com' }
-  #s.source           = { git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: s.version.to_s }
-  s.source           = { git: '' }
+  s.source           = { git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: s.version.to_s }
+  #s.source           = { git: '' }
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '10.0'
 
