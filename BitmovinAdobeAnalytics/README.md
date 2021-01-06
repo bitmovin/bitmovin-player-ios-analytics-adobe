@@ -12,7 +12,7 @@ This module allows for the integration of your Adobe Experience Media Analytics 
 
 ## Installation & Configuration
 
-1. BitmovinAdobeAnalytics is available through [CocoaPods](https://cocoapods.org). We depend on cocoapods version >= 1.4.
+1. `BitmovinAdobeAnalytics` is available through [CocoaPods](https://cocoapods.org). We depend on cocoapods version >= 1.4.
 
 - To install it, simply add the following line to your Podfile:
 
