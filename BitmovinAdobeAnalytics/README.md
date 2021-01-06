@@ -1,5 +1,5 @@
 # Adobe Analytics Integration for the Bitmovin Player iOS SDK
-This module allows for the integration of your Abode Experience Media Analytics backend with your Bitmovin Player iOS SDK.
+This module allows for the integration of your Adobe Experience Media Analytics backend with the Bitmovin Player iOS SDK.
 
 ## Requirements
 -----------------
