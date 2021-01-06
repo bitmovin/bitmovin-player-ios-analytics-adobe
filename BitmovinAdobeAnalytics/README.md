@@ -50,7 +50,7 @@ import ACPMedia;
 
 3. Register Media with mobile core. Please refer to [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics#register-media-with-mobile-core)
 
-- In your app's application:didFinishLaunchingWithOptions, register Media with Mobile Core:
+- In your app's `application:didFinishLaunchingWithOptions`, register Media with Mobile Core:
 
 ```swift
 import ACPCore
