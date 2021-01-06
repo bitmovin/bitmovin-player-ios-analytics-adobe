@@ -50,7 +50,7 @@ import ACPMedia;
 
 3. Register Media with mobile core. Please refer to [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics#register-media-with-mobile-core)
 
-In your app's application:didFinishLaunchingWithOptions, register Media with Mobile Core:
+- In your app's application:didFinishLaunchingWithOptions, register Media with Mobile Core:
 
 ```swift
 import ACPCore
@@ -99,7 +99,7 @@ do {
 ```
 2. `AdobeConfiguration`: This object is used to configure the Adobe analytics module. This can be used to configure if debugging should be enabled or not for the module.
 
-3. `AdobeAnalyticsDataOverrideDelegate`: This defines a protocol with menthods for calculating metadata to sent with Adobe analytics events. A default implentation is provide by the module but it SHOULD be overridden by application to provide custom override methods for the values of fields of Adobe Media Analytics event data. A list of methods in the protocol and default values is provided below.
+3. `AdobeAnalyticsDataOverrideDelegate`: This defines a protocol with menthods for calculating metadata to be sent with Adobe analytics events. A default implentation is provide by the module but it SHOULD be overridden by application to provide custom override methods for the values of fields of Adobe Media Analytics event data. A list of methods in the protocol and default values is provided below.
 
 ##### Media
 
