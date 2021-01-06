@@ -82,7 +82,7 @@ This version of the Adobe Analytics Integration is validated with `BitmovinPlaye
 
 ## Usage
 ----------------
-The BitmovinAdobeAnalytics module provides information for each video uniquely. The module exposes following objects.
+The `BitmovinAdobeAnalytics` module provides information for each video uniquely. The module exposes the following objects:
 
 1. `AdobeMediaAnalytics`: This object is the entry point to be used by the application to start tracking Adobe Media Analytics. The following example shows how to setup the BitmovinAdobeAnalytics.
 
