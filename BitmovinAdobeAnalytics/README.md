@@ -10,26 +10,14 @@ This module allows for the integration of your Adobe Experience Media Analytics 
 ## Getting started
 ------------------
 
-## Installation & Configuration
+### Installation & Configuration
 
 1. `BitmovinAdobeAnalytics` is available through [CocoaPods](https://cocoapods.org). We depend on cocoapods version >= 1.4.
 
-- To install it, simply add the following line to your Podfile:
-
-```ruby
-pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '1.0.0-rc1'
-```
-
-- Alternatively to add it as a dependency to your project, add the following pods to your Podfile:
+- To install it, simply add it as a dependency to your project. Add the following pod to your Podfile:
 
 ```
 pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '1.0.0-rc1'
-```
-
-- Then, in your command line run:
-
-```
-pod install
 ```
 
 2. Add Adobe Media Analytics to your application. Please refer to [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics#add-media-analytics-to-your-app)
@@ -42,7 +30,13 @@ pod 'ACPAnalytics', '~> 2.0'
 pod 'ACPMedia', '~> 2.0'
 ```
 
-- In Xcode project, import Media extension.
+3. Then, in your command line run:
+
+```
+pod install
+```
+
+4. In Xcode project, import Media extension.
 
 ```swift
 import ACPMedia;
@@ -101,7 +95,7 @@ do {
 
 3. `AdobeAnalyticsDataOverrideDelegate`: This defines a protocol with menthods for calculating metadata to be sent with Adobe analytics events. A default implentation is provide by the module but it SHOULD be overridden by application to provide custom override methods for the values of fields of Adobe Media Analytics event data. A list of methods in the protocol and default values is provided below.
 
-##### Media
+### Media
 
 | Method (With Signature)                                                  |       Default Value       | Description|
 | :-----------------------------------------------------------------------:|:-------------------------:|-----------:|
@@ -109,7 +103,7 @@ do {
 | func getMediaId (_ player: Player, _ source: SourceItem) -> String       | 	"default_Media_ID"     | Should return an identifier of media being played|
 | func getMediaContextData (_ player: Player) -> NSMutableDictionary?      | 	nill                   | Should return the custom metadata for the playback session|
 
-##### Ads
+### Ads
 
 | Method (With Signature)                                                             | Default Value                     | Description |
 | -----------------------------------------------------------------------------------:|:---------------------------------:|:-----------:|
