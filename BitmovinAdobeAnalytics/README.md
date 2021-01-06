@@ -5,7 +5,7 @@ This module allows for the integration of your Adobe Experience Media Analytics 
 -----------------
 1. Adobe Experience Cloud account
 2. Bitmovin account
-3. Adobe Experience Platform for mobile AEP SDKs is configured and "launch-app-id" setup as provided in link [here](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/configuration)
+3. Adobe Experience Platform for mobile AEP SDKs is configured and "launch-app-id" setup as provided in the [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/configuration)
 
 ## Getting started
 ------------------
