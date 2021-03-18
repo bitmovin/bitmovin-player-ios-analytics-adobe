@@ -9,11 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial implementation
 
-## [1.1.0] (2020-03-18)
+## [1.1.1] (2020-03-18)
 
 ### Fixed
 - Fixed crash issue if `ACPMedia.createTracker()` returns `nil` and AdobeMediaAnalytics cannot be instantiated
 
 [1.0.0]: https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe/releases/tag/1.0.0
-[1.1.0]: https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe/releases/tag/1.1.0
+[1.1.1]: https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe/releases/tag/1.1.1
 
