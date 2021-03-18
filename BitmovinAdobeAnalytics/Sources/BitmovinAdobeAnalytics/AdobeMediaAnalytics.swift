@@ -51,8 +51,9 @@ public final class AdobeMediaAnalytics: NSObject {
     public init?(player: Player,
                  config: AdobeConfiguration = AdobeConfiguration(),
                  delegate: AdobeAnalyticsDataOverrideDelegate?) throws {
-        self.mediaTracker = ACPMedia.createTracker()
-        if self.mediaTracker == nil {
+        if let mediaTracker = ACPMedia.createTracker() {
+            self.mediaTracker = mediaTracker
+        } else {
             return nil;
         }
 
