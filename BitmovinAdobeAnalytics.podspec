@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'BitmovinAdobeAnalytics'
-  s.version          = '1.0.0-rc1'
+  s.version          = '1.1.0'
   s.summary          = 'Adobe Analytics Integration for the Bitmovin Player iOS SDK'
 
   s.description      = <<-DESC
