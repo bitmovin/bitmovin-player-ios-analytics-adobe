@@ -51,11 +51,14 @@ public final class AdobeMediaAnalytics: NSObject {
     public init?(player: Player,
                  config: AdobeConfiguration = AdobeConfiguration(),
                  delegate: AdobeAnalyticsDataOverrideDelegate?) throws {
+        self.mediaTracker = ACPMedia.createTracker()
+        if self.mediaTracker == nil {
+            return nil;
+        }
+
         self.player = player
         self.config = config
-
         self.logger = Logger(loggingEnabled: config.debugLoggingEnabled)
-        self.mediaTracker = ACPMedia.createTracker()!
         self.dataOverrideDelegate = delegate
         self.listener = BitmovinPlayerListener(player: player)
         

@@ -17,7 +17,7 @@ This module allows for the integration of your Adobe Experience Media Analytics 
 - To install it, simply add it as a dependency to your project. Add the following pod to your Podfile:
 
 ```
-pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '1.0.0-rc1'
+pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '1.1.0'
 ```
 
 2. Add Adobe Media Analytics to your application. Please refer to [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics#add-media-analytics-to-your-app)
