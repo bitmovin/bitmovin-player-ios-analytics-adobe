@@ -91,7 +91,7 @@ public final class AdobeMediaAnalytics: NSObject {
         let mediaObject = ACPMedia.createMediaObject(withName: "video-name",
                                                      mediaId: "video-id",
                                                      length: player.duration,
-                                                     streamType: player.isLive ? ACPMediaStreamTypeVod:ACPMediaStreamTypeLive,
+                                                     streamType: player.isLive ? ACPMediaStreamTypeLive:ACPMediaStreamTypeVod,
                                                      mediaType:ACPMediaType.video)
         
         mediaTracker.trackSessionStart(mediaObject, data:mediaMetadata as? [AnyHashable : Any]);
