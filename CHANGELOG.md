@@ -14,6 +14,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Fixed crash issue if `ACPMedia.createTracker()` returns `nil` and AdobeMediaAnalytics cannot be instantiated
 
+## [develop] (2020-03-30)
+
+### Fixed
+- Fixed streamType to be set correctly as Live or VOD
+
 [1.0.0]: https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe/releases/tag/1.0.0
 [1.1.1]: https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe/releases/tag/1.1.1
 
