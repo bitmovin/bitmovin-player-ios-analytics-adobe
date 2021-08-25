@@ -31,7 +31,7 @@ public final class AdobeMediaAnalytics: NSObject {
     /**
      Set the BMPBitmovinPlayerView to enable view triggered events like fullscreen state changes
      */
-    public var playerView: BMPBitmovinPlayerView? {
+    public var playerView: PlayerView? {
         didSet {
             playerView?.remove(listener: self)
             playerView?.add(listener: self)
@@ -114,7 +114,7 @@ public final class AdobeMediaAnalytics: NSObject {
 // MARK: - PlayerListener
 extension AdobeMediaAnalytics: BitmovinPlayerListenerDelegate {
     
-    func onEvent(_ event: PlayerEvent) {
+    func onEvent(_ event: Event) {
         logger.debugLog(message: "[ Player Event ] \(event.name)")
     }
 
@@ -127,7 +127,16 @@ extension AdobeMediaAnalytics: BitmovinPlayerListenerDelegate {
         mediaTracker.updateCurrentPlayhead(event.currentTime)
     }
 
-    func onError(_ event: ErrorEvent) {
+    func onPlayerError(_ event: PlayerErrorEvent) {
+        if !isSessionActive {
+            internalInitializeSession()
+        }
+
+        let message = "\(event.code) \(event.message)"
+        mediaTracker.trackError(message)
+    }
+    
+    func onSourceError(_ event: SourceErrorEvent) {
         if !isSessionActive {
             internalInitializeSession()
         }
@@ -296,11 +305,11 @@ extension AdobeMediaAnalytics: AdobeAnalyticsDataOverrideDelegate {
         return nil
     }
 
-    public func getMediaName (_ player: Player, _ source: SourceItem) -> String {
+    public func getMediaName (_ player: Player, _ source: Source) -> String {
         return "default_Media_Name"
     }
 
-    public func getMediaId (_ player: Player, _ source: SourceItem) -> String {
+    public func getMediaId (_ player: Player, _ source: Source) -> String {
         return "default_Media_ID"
     }
     
