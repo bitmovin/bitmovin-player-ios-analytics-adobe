@@ -18,7 +18,7 @@ Adobe Analytics Integration for the Bitmovin Player iOS SDK
   s.source_files = 'BitmovinAdobeAnalytics/Sources/**/*.swift'
   s.resources = 'BitmovinAdobeAnalytics/Assets/*'
   s.swift_version = '5.2'
-  s.cocoapods_version = '>= 1.4.0'
+  s.cocoapods_version = '>= 1.9.0'
 
   s.ios.dependency 'BitmovinPlayer', '~> 3.0'
   s.ios.dependency 'ACPCore', '~> 2.0'
