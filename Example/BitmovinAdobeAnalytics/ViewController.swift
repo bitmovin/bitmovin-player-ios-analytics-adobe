@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var uiEventLabel: UILabel!
 
     var player: Player?
-    var playerView: BMPBitmovinPlayerView?
+    var playerView: PlayerView?
     var fullScreen: Bool = false
 
     var adobeAnalytics: AdobeMediaAnalytics?
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 
         setupBitmovinPlayer()
 
-        if let posterUrl = sourceItem.posterSource {
+        if let posterUrl = vodSourceConfig.posterSource {
             // Be aware that this will be executed synchronously on the main thread (change to SDWebImage if needed)
             if let data = try? Data(contentsOf: posterUrl) {
                 posterImageView.image = UIImage(data: data)
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
 
     func setupBitmovinPlayer() {
         // Setup Player
-        player = Player()
+        player = PlayerFactory.create(playerConfig: playerConfig)
 
         let adobeConfig = AdobeConfiguration()
         adobeConfig.debugLoggingEnabled = true
@@ -52,10 +52,8 @@ class ViewController: UIViewController {
             NSLog("[ Example ] AdobeAnalytics initialization failed with error: \(error)")
         }
 
-        player?.setup(configuration: playerConfiguration)
-
         // Setup UI
-        playerView = BMPBitmovinPlayerView(player: player!, frame: playerUIView.bounds)
+        playerView = PlayerView(player: player!, frame: playerUIView.bounds)
         playerView?.fullscreenHandler = self
 
         if let adobeAnalytics = adobeAnalytics {
@@ -64,46 +62,47 @@ class ViewController: UIViewController {
 
         playerView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         playerUIView.addSubview(playerView!)
+
+        player?.load(source: SourceFactory.create(from: vodSourceConfig))
     }
 
-    var playerConfiguration: PlayerConfiguration {
-        let playerConfiguration = PlayerConfiguration()
-        playerConfiguration.sourceItem = sourceItem
+    var playerConfig: PlayerConfig {
+        let playerConfig = PlayerConfig()
         if adsSwitch.isOn {
-            playerConfiguration.advertisingConfiguration = adConfig
+            playerConfig.advertisingConfig = adConfig
         }
-        return playerConfiguration
+        return playerConfig
     }
 
-    var sourceItem: SourceItem {
+    var vodSourceConfig: SourceConfig {
         var sourceString = "https://bitmovin-a.akamaihd.net/content/art-of-motion_drm/m3u8s/11331.m3u8"
         if let streamString = streamUrlTextField.text,
            URL(string: streamString) != nil {
             sourceString = streamString
         }
 
-        let sourceItem = SourceItem(url: URL(string: sourceString)!)!
-        sourceItem.posterSource = URL(string: "https://bitmovin-a.akamaihd.net/content/poster/hd/RedBull.jpg")
-        sourceItem.itemTitle = "Art of Motion"
-        return sourceItem
+        let sourceConfig = SourceConfig(url: URL(string: sourceString)!, type: .hls)
+        sourceConfig.posterSource = URL(string: "https://bitmovin-a.akamaihd.net/content/poster/hd/RedBull.jpg")
+        sourceConfig.title = "Art of Motion"
+        return sourceConfig
     }
 
-    var adConfig: AdvertisingConfiguration {
+    var adConfig: AdvertisingConfig {
         // swiftlint:disable:next line_length
         let adTagVmap = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ar%3Dpremidpostpod&cmsid=496&vid=short_onecue&correlator="
 
-        let adSource = AdSource(tag: URL(string: adTagVmap)!, ofType: .IMA)
+        let adSource = AdSource(tag: URL(string: adTagVmap)!, ofType: .ima)
 
         let vmap = AdItem(adSources: [adSource], atPosition: "pre")
 
-        let adConfig = AdvertisingConfiguration(schedule: [vmap])
+        let adConfig = AdvertisingConfig(schedule: [vmap])
 
         return adConfig
     }
 
     // MARK: - actions
     @IBAction func setupPlayer(_ sender: Any) {
-        player?.setup(configuration: playerConfiguration)
+        player?.load(source: SourceFactory.create(from: vodSourceConfig))
     }
 
     @IBAction func destroyPlayer(_ sender: Any) {
@@ -133,12 +132,12 @@ extension ViewController: AdobeAnalyticsDataOverrideDelegate {
         return ["os": "iOS"]
     }
 
-    func getMediaName (_ player: Player, _ source: SourceItem) -> String {
-        return source.itemTitle ?? "Test_Media_Name"
+    func getMediaName (_ player: Player, _ source: Source) -> String {
+        return source.sourceConfig.title ?? "Test_Media_Name"
     }
 
-    func getMediaId (_ player: Player, _ source: SourceItem) -> String {
-        return source.itemTitle ?? "Test_Media_Id"
+    func getMediaId (_ player: Player, _ source: Source) -> String {
+        return source.sourceConfig.title ?? "Test_Media_Id"
     }
 
     func getAdBreakId (_ player: Player, _ event: AdBreakStartedEvent) -> String {

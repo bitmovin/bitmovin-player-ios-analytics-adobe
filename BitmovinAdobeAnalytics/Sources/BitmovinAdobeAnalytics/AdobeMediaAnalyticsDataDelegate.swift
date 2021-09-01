@@ -12,9 +12,9 @@ public protocol AdobeAnalyticsDataOverrideDelegate: AnyObject {
 
     func getMediaContextData (_ player: Player) -> NSMutableDictionary?
 
-    func getMediaName (_ player: Player, _ source: SourceItem) -> String
+    func getMediaName (_ player: Player, _ source: Source) -> String
 
-    func getMediaId (_ player: Player, _ source: SourceItem) -> String
+    func getMediaId (_ player: Player, _ source: Source) -> String
 
     func getAdBreakId (_ player: Player, _ event: AdBreakStartedEvent) -> String
 

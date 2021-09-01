@@ -12,12 +12,12 @@ This module allows for the integration of your Adobe Experience Media Analytics 
 
 ### Installation & Configuration
 
-1. `BitmovinAdobeAnalytics` is available through [CocoaPods](https://cocoapods.org). We depend on cocoapods version >= 1.4.
+1. `BitmovinAdobeAnalytics` is available through [CocoaPods](https://cocoapods.org). We depend on cocoapods version >= 1.9.0
 
 - To install it, simply add it as a dependency to your project. Add the following pod to your Podfile:
 
 ```
-pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '1.2.0'
+pod 'BitmovinAdobeAnalytics', git: 'https://github.com/bitmovin/bitmovin-player-ios-analytics-adobe.git', tag: '2.0.0'
 ```
 
 2. Add Adobe Media Analytics to your application. Please refer to [Adobe documentation](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/adobe-media-analytics#add-media-analytics-to-your-app)
@@ -72,7 +72,8 @@ func application(_ application: UIApplication,
 `your-launch-app-id` : ApplicationId setup following steps [here](https://aep-sdks.gitbook.io/docs/using-mobile-extensions/mobile-core/configuration)
 
 ### Compatibility
-This version of the Adobe Analytics Integration is validated with `BitmovinPlayer` version `>= 2.57.x`. It should work with older versions as well but is subject to validation.
+Versions 2.x.x of this Adobe analytics integration is comaptible with `BitmovinPlayer` version `>= 3.0.0`.
+Versions 1.x.x of this Adobe analytics integration is compatible with `BitmovinPlayer` version `< 3.0.0`. These are validated with player version `>= 2.57.x`.
 
 ## Usage
 ----------------

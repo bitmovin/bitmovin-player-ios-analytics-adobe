@@ -12,7 +12,7 @@ import BitmovinAdobeAnalytics
 class ViewController: UIViewController {
 
     var player: Player?
-    var playerView: BMPBitmovinPlayerView?
+    var playerView: PlayerView?
     var fullScreen: Bool = false
 
     var adobeAnalytics: AdobeMediaAnalytics?
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
     func setupBitmovinPlayer() {
         // Setup Player
-        player = Player()
+        player = PlayerFactory.create(playerConfig: playerConfig)
 
         let adobeConfig = AdobeConfiguration()
         adobeConfig.debugLoggingEnabled = true
@@ -40,10 +40,8 @@ class ViewController: UIViewController {
             NSLog("[ Example ] AdobeAnalytics initialization failed with error: \(error)")
         }
 
-        player?.setup(configuration: playerConfiguration)
-
         // Setup UI
-        playerView = BMPBitmovinPlayerView(player: player!, frame: .zero)
+        playerView = PlayerView(player: player!, frame: .zero)
         playerView?.frame = view.bounds
 
         if let adobeAnalytics = adobeAnalytics {
@@ -53,24 +51,22 @@ class ViewController: UIViewController {
         playerView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.addSubview(playerView!)
         view.bringSubviewToFront(playerView!)
+
+        player?.load(source: SourceFactory.create(from: vodSourceConfig))
     }
 
-    var playerConfiguration: PlayerConfiguration {
-        let playerConfiguration = PlayerConfiguration()
-        playerConfiguration.sourceItem = sourceItem
-
-        return playerConfiguration
+    var playerConfig: PlayerConfig {
+        let playerConfig = PlayerConfig()
+        return playerConfig
     }
 
-    var sourceItem: SourceItem? {
+   var vodSourceConfig: SourceConfig {
         let sourceString = "https://bitmovin-a.akamaihd.net/content/art-of-motion_drm/m3u8s/11331.m3u8"
-        guard let url = URL(string: sourceString),
-            let sourceItem = SourceItem(url: url) else {
-                return nil
-        }
-        sourceItem.posterSource = URL(string: "https://bitmovin-a.akamaihd.net/content/poster/hd/RedBull.jpg")
-        sourceItem.itemTitle = "Art of Motion"
-        return sourceItem
+
+        let sourceConfig = SourceConfig(url: URL(string: sourceString)!, type: .hls)
+        sourceConfig.posterSource = URL(string: "https://bitmovin-a.akamaihd.net/content/poster/hd/RedBull.jpg")
+        sourceConfig.title = "Art of Motion"
+        return sourceConfig
     }
 }
 extension ViewController: AdobeAnalyticsDataOverrideDelegate {
@@ -79,12 +75,12 @@ extension ViewController: AdobeAnalyticsDataOverrideDelegate {
         return ["os": "tvOS"]
     }
 
-    func getMediaName (_ player: Player, _ source: SourceItem) -> String {
-        return source.itemTitle ?? "Test_Media_Name"
+    func getMediaName (_ player: Player, _ source: Source) -> String {
+        return source.sourceConfig.title ?? "Test_Media_Name"
     }
 
-    func getMediaId (_ player: Player, _ source: SourceItem) -> String {
-        return source.itemTitle ?? "Test_Media_Id"
+    func getMediaId (_ player: Player, _ source: Source) -> String {
+        return source.sourceConfig.title ?? "Test_Media_Id"
     }
 
     func getAdBreakId (_ player: Player, _ event: AdBreakStartedEvent) -> String {
