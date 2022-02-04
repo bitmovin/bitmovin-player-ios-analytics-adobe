@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 def shared_pods
   pod 'BitmovinAdobeAnalytics', path: '../'
-  pod 'BitmovinPlayer', '3.6.0'
+  pod 'BitmovinPlayer', '3.13.0'
   pod 'ACPCore', '~> 2.0'
   pod 'ACPAnalytics', '~> 2.0'
   pod 'ACPMedia', '~> 2.0'
@@ -16,7 +16,7 @@ target 'BitmovinAdobeAnalytics_Example' do
   platform :ios, '12.0'
   shared_pods
 
-  pod 'GoogleAds-IMA-iOS-SDK', '3.12.1'
+  pod 'GoogleAds-IMA-iOS-SDK', '3.14.5'
 end
 
 target 'BitmovinAdobeAnalytics_TvOSExample' do
