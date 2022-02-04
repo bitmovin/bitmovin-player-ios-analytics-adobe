@@ -23,6 +23,7 @@ public final class AdobeMediaAnalytics: NSObject {
     var listener: BitmovinPlayerListener?
     
     var activeAdBreakPosition: Double = 0
+    var isPaused = false
 
     // MARK: - Helper
     let logger: Logger
@@ -181,10 +182,12 @@ extension AdobeMediaAnalytics: BitmovinPlayerListenerDelegate {
 
     func onPlaying() {
         mediaTracker.trackPlay()
+        isPaused = false
     }
 
     func onPaused() {
         mediaTracker.trackPause()
+        isPaused = true
     }
 
     func onPlaybackFinished() {
@@ -261,6 +264,14 @@ extension AdobeMediaAnalytics: BitmovinPlayerListenerDelegate {
         let adPosition = dataOverrideDelegate?.getAdPosition(player, event)
         let adDuration = event.duration
         let adObject = ACPMedia.createAdObject(withName: adName!, adId: adId!, position: adPosition!, length: adDuration)
+
+        // Bitmovin player sends Pause event when switching from main content to Ad
+        // start tracking Ad play when Ad starts. Do not check `player.isPaused` as
+        // that reflects state for main content playback
+        if (isPaused) {
+            mediaTracker.trackPlay()
+            isPaused = false
+        }
 
         mediaTracker.trackEvent(ACPMediaEvent.adStart, info: adObject, data: nil)
     }
