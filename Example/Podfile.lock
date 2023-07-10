@@ -1,0 +1,70 @@
+PODS:
+  - ACPAnalytics (2.5.4):
+    - ACPAnalytics/xcframeworks (= 2.5.4)
+    - ACPCore (>= 2.9.6)
+  - ACPAnalytics/xcframeworks (2.5.4):
+    - ACPCore (>= 2.9.6)
+  - ACPCore (2.9.7):
+    - ACPCore/main (= 2.9.7)
+  - ACPCore/main (2.9.7)
+  - ACPMedia (2.3.2):
+    - ACPCore (>= 2.9.0)
+    - ACPMedia/xcframeworks (= 2.3.2)
+  - ACPMedia/xcframeworks (2.3.2):
+    - ACPCore (>= 2.9.0)
+  - BitmovinAdobeAnalytics (2.0.0):
+    - ACPAnalytics (~> 2.0)
+    - ACPCore (~> 2.0)
+    - ACPMedia (~> 2.0)
+    - BitmovinPlayer (~> 3.0)
+  - BitmovinPlayer (3.41.0):
+    - BitmovinPlayerCore (= 3.41.0)
+  - BitmovinPlayerCore (3.41.0)
+  - GoogleAds-IMA-iOS-SDK (3.18.4)
+  - Nimble (9.2.1)
+  - Quick (4.0.0)
+  - SwiftLint (0.50.3)
+
+DEPENDENCIES:
+  - ACPAnalytics (~> 2.0)
+  - ACPCore (~> 2.0)
+  - ACPMedia (~> 2.0)
+  - BitmovinAdobeAnalytics (from `../`)
+  - BitmovinPlayer (= 3.41.0)
+  - GoogleAds-IMA-iOS-SDK (= 3.18.4)
+  - Nimble (~> 9.2.0)
+  - Quick (~> 4.0.0)
+  - SwiftLint
+
+SPEC REPOS:
+  https://github.com/bitmovin/cocoapod-specs.git:
+    - BitmovinPlayer
+    - BitmovinPlayerCore
+  https://github.com/CocoaPods/Specs.git:
+    - ACPAnalytics
+    - ACPCore
+    - ACPMedia
+    - GoogleAds-IMA-iOS-SDK
+    - Nimble
+    - Quick
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  BitmovinAdobeAnalytics:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ACPAnalytics: 033c3824a7cac48a375aa5bdee567d691e5cafe5
+  ACPCore: 66872864b2419b5920060e7b7eb36cd615cbe0d3
+  ACPMedia: a56efa0e8d78815985f3e37960f79e33a58eb6ef
+  BitmovinAdobeAnalytics: 91ac6736b360c122d1932132958ea493f97bc78e
+  BitmovinPlayer: c8d7beb310c37df057191235cb6da5441cbe8bee
+  BitmovinPlayerCore: 13f01b25795969e312b1e5ba036789a12057eb27
+  GoogleAds-IMA-iOS-SDK: b01284e3bf3d64ba948de6692ffda531452c3713
+  Nimble: e7e615c0335ee4bf5b0d786685451e62746117d5
+  Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+
+PODFILE CHECKSUM: 8393867b98b8dd802e320364eed7e2c766bd302d
+
+COCOAPODS: 1.12.1
